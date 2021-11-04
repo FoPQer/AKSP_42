@@ -9,10 +9,10 @@ import java.util.Date;
 
 @Controller
 public class MainController {
-    @MessageMapping("/chat")
+    @MessageMapping("/webs")
     @SendTo("/topic/messages")
-    public OutputMessage send(Message message) {
+    public MessageOutput send(Message message) {
         String time = new SimpleDateFormat("HH:mm").format(new Date());
-        return new OutputMessage(message.getFrom(), message.getText(), time);
+        return new MessageOutput(message.getFrom(), message.getText(), time);
     }
 }
